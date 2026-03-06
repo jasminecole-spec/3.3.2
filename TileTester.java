@@ -18,23 +18,17 @@ public class TileTester
     Tile[][] gameboard = new Tile[3][4];
     int end = tileValues.length;
 
-    for (Tile[] eRow : gameboard)
+    for (int eRow = 0; eRow < gameboard.length; eRow++)
     {
-      for (Tile currentTile : eRow)
+      for (int eCol = 0; eCol < gameboard[0].length; eCol++)
       {
-          int random = (int)(Math.random()*end);
-          currentTile = new Tile(tileValues[random]);
-          end--;
+        int random = (int)(Math.random()*end);
+        Tile currentTile = new Tile(tileValues[random]);
+        tileValues[random] = tileValues[end-1];
+        gameboard[eRow][eCol] = currentTile;
+        end--;
+        System.out.println(gameboard[eRow][eCol]);
       }
     }
-    
-    for (int row = 0; row < gameboard.length; row++)
-    {
-      for (int col = 0; col < gameboard[0].length; col++)
-      {
-        System.out.println(gameboard[row][col]);
-      }
-    }
-    
   }
 }
