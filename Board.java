@@ -23,7 +23,21 @@ public class Board
   {
    
     /* your code here */ 
+    Tile[][] gameboard = new Tile[3][4];
+    int end = tileValues.length;
 
+    for (int eRow = 0; eRow < gameboard.length; eRow++)
+    {
+      for (int eCol = 0; eCol < gameboard[0].length; eCol++)
+      {
+        int random = (int)(Math.random()*end);
+        Tile currentTile = new Tile(tileValues[random]);
+        tileValues[random] = tileValues[end-1];
+        gameboard[eRow][eCol] = currentTile;
+        end--;
+        System.out.println(gameboard[eRow][eCol]);
+      }
+    }
   }
 
  /** 
@@ -39,8 +53,25 @@ public class Board
   {
  
     /* your code here */
- 
-    return "";
+    String gameString = "";
+    int i = 0;
+    for (Tile[] array : gameboard)
+    {
+      for (Tile index : array)
+      {
+        for (i = 0; i < gameboard[0].length; i++)
+        {
+          System.out.print(index);
+          System.out.print("\t");
+        }
+        if (i == gameboard[0].length)
+        {
+          i = 0;
+        }
+        System.out.println();
+      }
+    }
+    return gameString;
   }
 
   /** 
