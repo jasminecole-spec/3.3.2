@@ -23,7 +23,6 @@ public class Board
   {
    
     /* your code here */ 
-    Tile[][] gameboard = new Tile[3][4];
     int end = tileValues.length;
 
     for (int eRow = 0; eRow < gameboard.length; eRow++)
