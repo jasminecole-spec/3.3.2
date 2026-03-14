@@ -54,22 +54,21 @@ public class Board
  
     /* your code here */
     String gameString = "";
-    int i = 0;
     for (Tile[] array : gameboard)
     {
-      for (Tile index : array)
+      for (Tile t : array)
       {
-        for (i = 0; i < gameboard[0].length; i++)
+        if (t.isShowingValue() == true)
         {
-          System.out.print(index);
-          System.out.print("\t");
+          gameString += t;
+          gameString += "\t";
         }
-        if (i == gameboard[0].length)
+        if (t.isShowingValue() == false)
         {
-          i = 0;
+          gameString += "_";
         }
-        System.out.println();
       }
+      gameString += "\n";
     }
     return gameString;
   }
