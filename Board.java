@@ -57,14 +57,15 @@ public class Board
     {
       for (Tile t : array)
       {
-        if (t.isShowingValue() == true)
+        if (t.isShowingValue())
         {
           gameString += t;
           gameString += "\t";
         }
-        if (t.isShowingValue() == false)
+        else 
         {
-          gameString += "_";
+          gameString += t.getHidden();
+          gameString += "\t";
         }
       }
       gameString += "\n";
