@@ -83,10 +83,23 @@ public class Board
    */
   public boolean allTilesMatch()
   {
-
     /* your code  here */
-    
-    return true;
+    boolean areMatched = false;
+    for (Tile[] array : gameboard)
+    {
+      for (Tile t : array)
+      {
+        if (t.matched())
+        {
+          areMatched = true;
+        }
+        else
+        {
+          areMatched = false;
+        }
+      }
+    }
+    return areMatched;
   }
 
   /** 
@@ -102,8 +115,8 @@ public class Board
    */
   public void showValue (int row, int column)
   {
-   
     /* your code here */
+    
   }  
 
   /** 

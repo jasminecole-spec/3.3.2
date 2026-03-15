@@ -20,6 +20,7 @@ public class Tile
   private String value;
   private String hidden;
   private String matched;
+  public String getHidden;
   
   /**
    * Construct a tile with a string value. The default state
