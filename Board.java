@@ -116,7 +116,7 @@ public class Board
   public void showValue (int row, int column)
   {
     /* your code here */
-    
+      gameboard[row][column].show();
   }  
 
   /** 
@@ -141,7 +141,18 @@ public class Board
     String msg = "";
 
      /* your code here */
-    
+    if (gameboard[row1][col1].equals(gameboard[row2][col2]))
+    {
+      gameboard[row1][col1].foundMatch();
+      gameboard[row2][col2].foundMatch();
+      msg = "Match occurred!";
+    }
+    else
+    {
+      gameboard[row1][col1].hide();
+      gameboard[row2][col2].hide();
+      msg = "Match did not occur!";
+    }
      return msg;
   }
 
@@ -149,16 +160,22 @@ public class Board
    * Checks the provided values fall within the range of the gameboard's dimension
    * and that the tile has not been previously matched
    * 
-   * @param rpw the row value of Tile
+   * @param row the row value of Tile
    * @param col the column value of Tile
    * @return true if row and col fall on the board and the row,col tile is unmatched, false otherwise
    */
   public boolean validateSelection(int row, int col)
   {
-
     /* your code here */
-
-    return true;
+    boolean works = false;
+    if ((row < gameboard.length) && (col < gameboard[0].length))
+    {
+      if (!(gameboard[row][col].matched()))
+      {
+        works = true;
+      }
+    }
+    return works;
   }
 
 }
